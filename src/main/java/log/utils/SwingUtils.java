@@ -10,4 +10,9 @@ public final class SwingUtils {
         Border loweredbevel = BorderFactory.createLoweredBevelBorder();
         return BorderFactory.createCompoundBorder(raisedbevel, loweredbevel);
     }
+
+    public static TextPanel createTextPanel(String path, String filterText) {
+        TextPanel panel = new TextPanel(TextUtils.readFile(path, filterText));
+        return panel;
+    }
 }

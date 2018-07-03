@@ -5,7 +5,10 @@ import java.awt.*;
 
 public class SearchBar extends JPanel {
     private JTextArea textArea;
-    public SearchBar(int width) {
+    private TextModel model;
+
+    public SearchBar(TextModel model, int width) {
+        this.model = model;
         //setLayout( new BorderLayout() );
         //setBorder( BorderFactory.createEtchedBorder() );
         setBorder(SwingUtils.getPanelBorder());
@@ -20,6 +23,9 @@ public class SearchBar extends JPanel {
 
         JButton btn = new JButton("Search");
         btn.setHorizontalAlignment(SwingConstants.LEFT);
+        btn.addActionListener(e-> {
+            this.model.updateAllText(getSearchText());
+        });
 
         add(textArea);
         add(btn);
