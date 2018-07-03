@@ -122,8 +122,8 @@ public class MainWindow extends JFrame implements ActionListener {
     private void updateLeftPanel(String path) {
         List<String> list = new ArrayList<>();
         try {
-            //Files.walk(Paths.get(path)).filter(Files::isRegularFile).filter(s->s.getFileName().toString().contains("Panel")).forEach(item -> list.add(item.toAbsolutePath().toString()));
-            Files.walk(Paths.get(path)).filter(Files::isRegularFile).forEach(item -> list.add(item.toAbsolutePath().toString()));
+            Files.walk(Paths.get(path)).filter(Files::isRegularFile).filter(s->s.getFileName().toString().toLowerCase().contains(".log")).forEach(item -> list.add(item.toAbsolutePath().toString()));
+            //Files.walk(Paths.get(path)).filter(Files::isRegularFile).forEach(item -> list.add(item.toAbsolutePath().toString()));
         } catch (IOException e) {
             e.printStackTrace();
         }

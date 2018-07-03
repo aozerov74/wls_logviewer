@@ -7,10 +7,8 @@ import java.util.List;
 public class LeftPanel extends JPanel {
     private JList list;
     private DefaultListModel model = new DefaultListModel();
-    private MainWindow main;
 
     public LeftPanel(MainWindow main) {
-        this.main = main;
         list = new JList(model);
         list.addListSelectionListener(e -> {
             String path = (String)list.getSelectedValue();
